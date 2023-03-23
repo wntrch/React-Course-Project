@@ -23,6 +23,10 @@ h2 {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
+.hover-cursor {
+    cursor: pointer;
+}
+
 .row-content {
     padding: 50px 0;
     border-bottom: 1px ridge;
