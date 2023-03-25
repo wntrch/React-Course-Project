@@ -11,7 +11,7 @@ import { NavLink } from "react-router-dom";
 import NucampLogo from "../app/assets/img/logo.png";
 
 const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <Navbar dark color="primary" sticky="top" expand="md">
