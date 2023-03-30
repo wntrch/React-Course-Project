@@ -2,6 +2,12 @@ import { Button, Label, Col, FormGroup } from "reactstrap";
 import { Formik, Field, Form } from "formik";
 
 const ContactForm = () => {
+	const handleSubmit = (values, { resetForm }) => {
+		console.log('form values:', values);
+		console.log('in JSON format:', JSON.stringify(values));
+		resetForm();
+	};
+	
   return (
     <Formik
       initialValues={{
@@ -13,6 +19,7 @@ const ContactForm = () => {
         contactType: "By Phone",
         feedback: "",
       }}
+      onSubmit={handleSubmit}
     >
       <Form>
         <FormGroup row>
@@ -70,15 +77,14 @@ const ContactForm = () => {
 
         <FormGroup row>
           <Label check md={{ size: 4, offset: 2 }}>
-			<Field name="agree" type="checkbox" className="form-check-input"
-			/>{' '} 
+            <Field name="agree" type="checkbox" className="form-check-input" />{" "}
             May we contact you?
           </Label>
           <Col md="4">
             <Field name="contactType" as="select" className="form-control">
-	  			<option>By Phone</option>
-	  			<option>By Email</option>
-			</Field>
+              <option>By Phone</option>
+              <option>By Email</option>
+            </Field>
           </Col>
         </FormGroup>
 
@@ -86,12 +92,23 @@ const ContactForm = () => {
           <Label htmlFor="feedback" md="2">
             Your Feedback
           </Label>
-          <Col md='10'>
-            <Field name="feedback" as="textarea" rows="12" className="form-control" />
+          <Col md="10">
+            <Field
+              name="feedback"
+              as="textarea"
+              rows="12"
+              className="form-control"
+            />
           </Col>
         </FormGroup>
 
-        <FormGroup row></FormGroup>
+        <FormGroup row>
+          <Col md={{ size: 10, offset: 2 }}>
+            <Button type="submit" color="primary">
+              Send Feedback
+            </Button>
+          </Col>
+        </FormGroup>
       </Form>
     </Formik>
   );
