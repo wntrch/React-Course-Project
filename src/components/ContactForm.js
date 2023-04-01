@@ -49,7 +49,7 @@ const ContactForm = () => {
               placeholder="Last Name"
               className="form-control"
             />
-			<ErrorMessage name="lastName">
+            <ErrorMessage name="lastName">
               {(msg) => <p className="text-danger">{msg}</p>}
             </ErrorMessage>
           </Col>
@@ -65,7 +65,7 @@ const ContactForm = () => {
               placeholder="Phone"
               className="form-control"
             />
-			<ErrorMessage name="phoneNum">
+            <ErrorMessage name="phoneNum">
               {(msg) => <p className="text-danger">{msg}</p>}
             </ErrorMessage>
           </Col>
@@ -82,7 +82,7 @@ const ContactForm = () => {
               type="email"
               className="form-control"
             />
-			<ErrorMessage name="email">
+            <ErrorMessage name="email">
               {(msg) => <p className="text-danger">{msg}</p>}
             </ErrorMessage>
           </Col>
