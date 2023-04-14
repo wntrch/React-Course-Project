@@ -18,7 +18,7 @@ export const fetchPartners = createAsyncThunk(
 const initialState = {
   partnersArray: [],
   isLoading: true,
-  errMsg: ""
+  errMsg: "",
 };
 
 const partnersSlice = createSlice({
@@ -37,8 +37,8 @@ const partnersSlice = createSlice({
     [fetchPartners.rejected]: (state, action) => {
       state.isLoading = false;
       state.errMsg = action.error ? action.error.message : "Unable to fetch";
-    }
-  }
+    },
+  },
 });
 
 export const partnersReducer = partnersSlice.reducer;
@@ -48,5 +48,11 @@ export const selectAllPartners = (state) => {
 };
 
 export const selectFeaturedPartner = (state) => {
-  return state.partners.partnersArray.find((partner) => partner.featured);
+  return {
+    featuredItem: state.partners.partnersArray.find(
+      (partner) => partner.featured
+    ),
+    isLoading: state.partners.isLoading,
+    errMsg: state.partners.errMsg,
+  };
 };

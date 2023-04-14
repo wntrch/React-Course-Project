@@ -18,7 +18,7 @@ export const fetchCampsites = createAsyncThunk(
 const initialState = {
   campsitesArray: [],
   isLoading: true,
-  errMsg: ""
+  errMsg: "",
 };
 
 const campsitesSlice = createSlice({
@@ -37,8 +37,8 @@ const campsitesSlice = createSlice({
     [fetchCampsites.rejected]: (state, action) => {
       state.isLoading = false;
       state.errMsg = action.error ? action.error.message : "Unable to fetch";
-    }
-  }
+    },
+  },
 });
 
 export const campsitesReducer = campsitesSlice.reducer;
@@ -58,5 +58,11 @@ export const selectCampsiteById = (id) => (state) => {
 // }
 
 export const selectFeaturedCampsite = (state) => {
-  return state.campsites.campsitesArray.find((campsite) => campsite.featured);
+  return {
+    featuredItem: state.campsites.campsitesArray.find(
+      (campsite) => campsite.featured
+    ),
+    isLoading: state.campsites.isLoading,
+    errMsg: state.campsites.errMsg,
+  };
 };
