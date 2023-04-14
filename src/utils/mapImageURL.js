@@ -8,3 +8,5 @@ export const mapImageURL = (arr) => {
 		};
 	});
 };
+
+export default mapImageURL;
